@@ -5,23 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>快来后台管理系统</title>
-<link href="../images/logo.png" rel="shortcut icon" />
-<link href="../css/start/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
-<script src="../js/jquery-1.9.1.js"></script>
-<script src="../js/jquery-ui-1.10.3.custom.js"></script>
+<jsp:include page="../head.html"></jsp:include>
 <script>
 
 	$(function () {
-		$(".button").button();
 		// 菜单点击的都跑到在跳转到 frame 里
 		$(".menu_button").attr("target", "frame");
-		// 菜单 hover
-		$(".menu_button").hover(function() {
-			$(this).finish();
-			$(this).animate({backgroundColor: "green"}, 500);
-		}, function() {
-			$(this).animate({backgroundColor: "transparent"}, 600);
-		});
 		// iFrame 高度设置
 		frameSizeSet();
 		$(window).resize(function() {
@@ -29,12 +18,39 @@
 		});
 		// 时间设置
 		timeShow();
+		// utils 栏伸缩按钮
+		$(".toggle_utils").click(utilToggle);
+		$(".toggle_utils").text("<");
 	});
 	
+	var utilsClose = false;
+	function utilToggle() {
+		if (utilsClose) {
+			$(".utils_content" ).animate({ "left": "+=170px" }, 300, function() {
+				$(".toggle_utils").text("<");
+			});
+		} else {
+			$(".utils_content" ).animate({ "left": "-=170px" }, 300, function() {
+				$(".toggle_utils").text(">");
+			});
+		}
+		utilsClose = !utilsClose;
+	}
+	
 	function frameSizeSet() {
-		$("#frame").height(window.innerHeight - $(".menu_content").height());
+		// frame框的大小也根据 utils_content而定
+		var height = $(".utils_content").outerHeight();
+		height = height > $(window).innerHeight() ? height : $(window).innerHeight();
+		$("#frame").height(height - $(".menu_content").height());
 		$("#frame").width(window.innerWidth - $(".utils_content").width() - 20);
-		$(".utils_content").height(window.innerHeight - $(".menu_content").height());
+		// utils_content 高度确定
+		if ( $(".utils_content").height() < $(window).innerHeight() ) {
+			$(".utils_content").height(window.innerHeight - $(".menu_content").height());
+		} else {
+			$(".utils_content").height("100%");
+		}
+		// 伸缩按钮确定
+		$(".toggle_utils").css("top", $(window).innerHeight() / 5 * 2);
 	}
 	
 	function timeShow() {
@@ -44,14 +60,6 @@
 		$("#date_time").html( date.getFullYear() + "/" + addZero(date.getMonth()) + "/" + addZero(date.getDate()) + "&nbsp;"
 				 + tWeek  + "<br/>" + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds()));
 		setTimeout('timeShow()', 1000);
-	}
-	
-	function addZero(num) {
-		if (num < 10) {
-			return "0" + num;
-		} else {
-			return num;
-		}
 	}
 	
 </script>
@@ -65,34 +73,14 @@
 		marging: 0px;
 	}
 	
-	.menu_button {
-		width: 80px;
-		height: 23px;
-		float: left;
-		display: inline;
-		text-align: center;
-		text-decoration: none;
-		font-weight: bold;
-		font-size: 15px;
-		padding-top: 7px;
-		color: white;
-	}
-	
-	.menu_button:HOVER.test {
-		background-color: green;
-	}
-	
-	.menu {
-		float: left;
-		list-style-type: none;
-		margin: 0px;
-		padding: 0px;
-		display: inline;
-	}
-	
 	body {
 		margin: 0px;
 		padding: 0px;
+	}
+	
+	.menu_button {
+		width: 80px;
+		height: 23px;
 	}
 	
 	.menu li {
@@ -134,6 +122,7 @@
 		width: 200px;
 		padding: 0px;
 		margin: 0px;
+		position: relative;
 		background-color: #00BFF3;
 		float:left;
 		display: inline;
@@ -166,6 +155,15 @@
 	fieldset li {
 		float: left;
 		display: block;
+	}
+	
+	.toggle_utils {
+		position: absolute;
+		top: 270px;
+		left: 185px;
+		float: right;
+		margin: 0px;
+		padding: 5px;
 	}
 	
 }
@@ -204,6 +202,8 @@
 		</fieldset>
 		<br/>
 		<span class="utils_text" id="date_time"></span>
+		<br/>
+		<p class="button toggle_utils"></p>
 	</div>
 	<iframe id="frame" name="frame" frameborder="0">
 		<noframes><span>您的浏览器太旧了！！！</span></noframes>
