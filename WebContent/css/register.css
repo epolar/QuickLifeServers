@@ -1,0 +1,172 @@
+@CHARSET "UTF-8";
+body {
+	background-image: url("../images/login_background.png");
+	background-repeat: no-repeat;
+}
+
+fieldset {
+	background: white;
+	display: inline;
+	height: 420px;
+	width: 540px;
+	margin: 30px;
+	border-color: gray;
+	border-width: 7px;
+	border-style: solid;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+legend {
+	text-align: center;
+	background: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+legend img {
+	width: 170px;
+}
+
+option {
+	width: 13em;
+	display: inline-block;
+}
+
+body > .content_div {
+	text-align: center;
+}
+
+.input_label {
+	font-size: medium;
+	width: 6em;
+}
+
+.input_view {
+	width: 13em;
+}
+
+.input_view, .input_label {
+	margin-top: 10px;
+}
+
+.prev_step_button, .next_step_button {
+	width: 50px;
+	height: 35px;
+	position: absolute;
+	top: 100px;
+	background-color: #00BFF3;
+	border-radius: 5px;
+	-webkit-radius: 5px;
+	-moz-radius: 5px;
+	-o-radius: 5px;
+}
+
+.prev_step_button:HOVER, .next_step_button:HOVER {
+	background-color: #1CFAFF; 
+}
+
+.validate_msg {
+	font-size: small;
+	padding: 0px;
+	margin: 0px;
+	height: 1em;
+}
+
+#step1, #step2, #step3, #step4, #step5 {
+	position: absolute;
+	top: 140px;
+	left: 415px;
+	display: inline;
+	width: 540px;
+	text-align: center;
+}
+
+.prevview {
+	margin-top: 20px;
+	width: 350px;
+}
+
+#map {
+	width: 99%;
+	height: 280px;
+	margin-top: 10px;
+	display: block;
+}
+
+#step3 .button {
+	width: 70px;
+	height: 2em;
+	font-size: small;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	position: relative;
+	top: -3px;
+}
+
+#logo_upload {
+	width: 300px;
+}
+
+#detail {
+	resize: none;
+	padding: 7px;
+	border-width: 3px;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+}
+
+#step_position textarea {
+	resize: none;
+	width: 10em;
+	height: 4em;
+	padding: 8px;
+	background-color: white;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+}
+
+#step_position div {
+	display: inline;
+}
+
+#step_position .position {
+	color: white;
+	font-weight: 900;
+	background-color: #0FC62B;
+	border-color: #085F16;
+	border-width: 4px;
+	padding: 10px;
+	position: relative;
+	left: -6.5em;
+	top: 3em;
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+}
+
+.notNow {
+	opacity: 0.3;
+}
+
+#register_success, #register_fail {
+	display: none;
+}
+
+#registering, #register_success, #register_fail {
+	margin-top: 100px;
+}

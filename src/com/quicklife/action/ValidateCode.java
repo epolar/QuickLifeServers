@@ -1,4 +1,4 @@
-package servlet;
+ï»¿package com.quicklife.action;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import utils.ValidateCodeFactory;
+import com.quicklife.util.ValidateCodeFactory;
+
 
 public class ValidateCode extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -30,10 +31,10 @@ public class ValidateCode extends HttpServlet{
 			resp.setHeader("pragma", "no-cache");
 			ValidateCodeFactory validateCodeFactory = ValidateCodeFactory.getFactory();
 			String validateCode = validateCodeFactory.randomLetter();
-			// ÉèÖÃ session
+			// è®¾ç½® session
 			req.getSession().setAttribute("validateCode", validateCode);
 			
-			// Êä³öÍ¼Æ¬
+			// è¾“å‡ºå›¾ç‰‡
 			BufferedImage img = (BufferedImage) validateCodeFactory.str2Image(validateCode);
 			ImageIO.write(img, "png", resp.getOutputStream());
 		} else {

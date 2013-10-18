@@ -31,12 +31,12 @@
 	function check() {
 		if ($("#username").val().trim().length == 0) {
 			$("#username").focus();
-			$("#username").parent().effect("pulsate");
+			invalidEffect($("#username"));
 			return false;
 		}
 		if ($("#password").val().trim().length == 0) {
 			$("#password").focus();
-			$("#password").parent().effect("pulsate");
+			invalidEffect($("#password"));
 			return false;
 		}
 		if ($("#validate_code").val().trim().length == 4) {
@@ -51,19 +51,22 @@
 		
 	function validateCodeFalse() {
 		$("#validate_code").focus();
-		$("#validate_code").parent().effect("pulsate");
+		invalidEffect($("#validate_code"));
 	}
 	
 	function submit() {
 		// 密码进行 md5 加密
 		$("#password").val(hex_md5($("#password").val()));
 		// 异步登陆，登陆完成才进行页面跳转
-		$.post("login.action", 
-				{"userName" : $("#username").val(), "password" : $("#password").val(), "validate" : $("#validate_code").val()},
+		$.post("LoginAction", 
+				{"actionflag": web, "rqinfos":{"userName" : $("#username").val(), 
+				"password" : $("#password").val()},
+				"validate" : $("#validate_code").val()},
 				function(data) {
-					if (data.login == true) {
-						window.location=data.url;
-						window.forward();
+					if (data.result == "success") {
+						alert(data.JsonStr);
+						// window.location=data.url;
+						// window.forward();
 					} else {
 						$("#password").val("");
 						$("#login_content").effect("shake");

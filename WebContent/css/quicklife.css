@@ -47,3 +47,6 @@
 		padding: 0px;
 		display: inline;
 	}
+	
+	/* aplusdesign 源码 */
+	.blue-loader .ajax_loader {background: url("../images/ajax-loader_blue.gif") no-repeat center center transparent;}

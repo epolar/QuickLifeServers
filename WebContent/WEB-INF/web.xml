@@ -1,23 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>QuickLife</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <servlet>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>QuickLife</display-name>
+	  <servlet>
 	<servlet-name>ValidateCode</servlet-name>      
-	<servlet-class>servlet.ValidateCode</servlet-class>
+	<servlet-class>com.quicklife.action.ValidateCode</servlet-class>
   </servlet>
-  
-  <servlet-mapping>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginAction</servlet-name>
+		<servlet-class>com.quicklife.action.LoginAction</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>RegisterAction</servlet-name>
+		<servlet-class>com.quicklife.action.RegisterAction</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CouponManageAction</servlet-name>
+    <servlet-class>com.quicklife.action.CouponManageAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BussInfoManageAction</servlet-name>
+    <servlet-class>com.quicklife.action.BussInfoManageAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CouponStatisticAction</servlet-name>
+    <servlet-class>com.quicklife.action.CouponStatisticAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FeedAcion</servlet-name>
+    <servlet-class>com.quicklife.action.FeedAcion</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CouponAcion</servlet-name>
+    <servlet-class>com.quicklife.action.CouponAcion</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckInAction</servlet-name>
+    <servlet-class>com.quicklife.action.CheckInAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AboutMeAction</servlet-name>
+    <servlet-class>com.quicklife.action.AboutMeAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HeartServiceAction</servlet-name>
+    <servlet-class>com.quicklife.action.HeartServiceAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileSaveAction</servlet-name>
+    <servlet-class>com.quicklife.action.FileSaveAction</servlet-class>
+  </servlet>
+
+
+
+    <servlet-mapping>
       <servlet-name>ValidateCode</servlet-name>
       <url-pattern>/validateCode</url-pattern>
   </servlet-mapping>
-  
+	<servlet-mapping>
+		<servlet-name>LoginAction</servlet-name>
+		<url-pattern>/LoginAction</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterAction</servlet-name>
+		<url-pattern>/RegisterAction</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CouponManageAction</servlet-name>
+    <url-pattern>/CouponManageAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BussInfoManageAction</servlet-name>
+    <url-pattern>/BussInfoManageAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CouponStatisticAction</servlet-name>
+    <url-pattern>/CouponStatisticAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FeedAcion</servlet-name>
+    <url-pattern>/FeedAcion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CouponAcion</servlet-name>
+    <url-pattern>/CouponAcion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckInAction</servlet-name>
+    <url-pattern>/CheckInAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AboutMeAction</servlet-name>
+    <url-pattern>/AboutMeAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HeartServiceAction</servlet-name>
+    <url-pattern>/HeartServiceAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileSaveAction</servlet-name>
+    <url-pattern>/FileSaveAction</url-pattern>
+  </servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
